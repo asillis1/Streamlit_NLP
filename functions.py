@@ -10,6 +10,7 @@ import spacy
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.io as pio
+from spacy.cli import download as spacy_download
 
 # Download necessary NLTK resources
 nltk_resources = [
@@ -24,8 +25,17 @@ for resource in nltk_resources:
     except LookupError:
         nltk.download(resource, quiet=True)
 
+# Function to ensure Spacy model is downloaded
+def ensure_spacy_model(model_name):
+    try:
+        return spacy.load(model_name)
+    except OSError:
+        spacy_download(model_name)
+        return spacy.load(model_name)
+
 # Load the Spacy model
-nlp = spacy.load("en_core_web_sm")
+nlp = ensure_spacy_model("en_core_web_sm")
+
 
 # Define functions
 def state(data):
