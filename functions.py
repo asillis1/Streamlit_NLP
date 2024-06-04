@@ -8,10 +8,6 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from itertools import chain
 import os
-
-import os
-import nltk
-import spacy
 from spacy.cli import download as spacy_download
 
 # Download necessary NLTK resources
@@ -26,15 +22,9 @@ for resource in nltk_resources:
     except LookupError:
         nltk.download(resource)
 
-# Define a directory to store the Spacy model
-spacy_model_dir = "./spacy_models"
-
-# Ensure the directory exists
-os.makedirs(spacy_model_dir, exist_ok=True)
-
-# Function to load or download the Spacy model
+# Function to download the Spacy model to a local directory
 def get_spacy_model(model_name):
-    model_path = os.path.join(spacy_model_dir, model_name)
+    model_path = f"./{model_name}"
     if not os.path.exists(model_path):
         spacy_download(model_name)
     return spacy.load(model_name)
