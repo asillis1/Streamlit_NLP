@@ -1,6 +1,2 @@
 nltk 
 spacy
-re
-pandas
-os
-io
