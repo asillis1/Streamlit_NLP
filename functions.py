@@ -14,6 +14,19 @@ import spacy
 from spacy.cli import download as spacy_download
 from spacy.util import get_package_path
 
+
+import nltk
+import spacy
+
+# Download necessary NLTK resources without interactive prompts
+nltk_resources = [
+    'punkt',
+    'stopwords',
+    'vader_lexicon'  # Add any other required NLTK resources here
+]
+
+for resource in nlt
+
 nltk.download('vader_lexicon')
 
 # File for defining functions used to run the app
