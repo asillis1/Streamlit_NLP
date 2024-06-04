@@ -8,7 +8,7 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from itertools import chain
 import os
-nltk.download('vader_lexicon')
+
 import nltk
 import spacy
 
@@ -33,6 +33,9 @@ except OSError:
     download("en_core_web_sm")
     nlp = spacy.load("en_core_web_sm")
     print("Downloaded and loaded spacy model")
+
+nltk.download('vader_lexicon')
+
 
 # File for defining functions used to run the app
 
