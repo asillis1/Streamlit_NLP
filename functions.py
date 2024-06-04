@@ -19,6 +19,31 @@ except OSError:
     download("en_core_web_sm")
     nlp = spacy.load("en_core_web_sm")
 
+import nltk
+import spacy
+
+# Download necessary NLTK resources
+nltk_resources = [
+    'punkt',
+    'stopwords',  # Add any other required NLTK resources here
+]
+
+for resource in nltk_resources:
+    try:
+        nltk.data.find(f'tokenizers/{resource}')
+    except LookupError:
+        nltk.download(resource)
+
+# Load Spacy model
+try:
+    nlp = spacy.load("en_core_web_sm")
+    print("Loaded spacy model")
+except OSError:
+    from spacy.cli import download
+    download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
+    print("Downloaded and loaded spacy model")
+
 
 # File for defining functions used to run the app
 
