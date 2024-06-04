@@ -1,7 +1,6 @@
 nltk 
 spacy
 re
-nltk.sentiment.vader
 pandas
 os
 io
