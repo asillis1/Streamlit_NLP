@@ -2,3 +2,5 @@ streamlit==1.26.0
 nltk
 spacy
 pandas
+matplotlib
+plotly
