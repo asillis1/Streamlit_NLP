@@ -14,35 +14,7 @@ import spacy
 from spacy.cli import download as spacy_download
 from spacy.util import get_package_path
 
-# Download necessary NLTK resources
-nltk_resources = [
-    'punkt',
-    'stopwords',  # Add any other required NLTK resources here
-]
-
-for resource in nltk_resources:
-    try:
-        nltk.data.find(f'tokenizers/{resource}')
-    except LookupError:
-        nltk.download(resource)
-
-# Define a directory to store the Spacy model
-spacy_model_name = "en_core_web_sm"
-spacy_model_dir = os.path.join(os.getcwd(), spacy_model_name)
-
-# Function to download the Spacy model to a local directory
-def get_spacy_model(model_name):
-    model_path = os.path.join(spacy_model_dir, model_name)
-    if not os.path.exists(model_path):
-        spacy_download(model_name)
-        package_path = get_package_path(model_name)
-        os.rename(package_path, model_path)
-    return spacy.load(model_name)
-
-# Load the Spacy model
-nlp = get_spacy_model(spacy_model_name)
 nltk.download('vader_lexicon')
-
 
 # File for defining functions used to run the app
 
